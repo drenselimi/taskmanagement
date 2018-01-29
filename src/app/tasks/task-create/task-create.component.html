@@ -25,10 +25,12 @@
     <div class="ui-md-6">
       <label>Status</label>
       <p-dropdown [options]="list" name="Status" [(ngModel)]="selectedStatus" required></p-dropdown>
-      <!-- <p-dropdown [options]="changeList" name="changeOn" [style]="{'width':'100%'}" (onChange)="onChange($event)" [(ngModel)]="changeId" required></p-dropdown> -->
     </div>
     <div class="ui-g-6">
       <p-button (onClick)="onCreate()" label="Save"></p-button>
     </div>
+    <div class="ui-g-6">
+        <p-button (onClick)="onBack()" label="Back"></p-button>
+      </div>
   </div>
 </div>

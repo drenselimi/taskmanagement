@@ -10,23 +10,22 @@ export class TaskService {
 
   url: string = 'http://abc-kosovo.cleverapps.io/ae355c5624ec/tasks';
 
-
   constructor(
     private http: Http
   ) { }
 
   getAll(): Observable<Task[]> {
     return this.http.get(this.url)
-    .map((res: Response) => {
-      return res.json() as Task[];
-    });
+      .map((res: Response) => {
+        return res.json() as Task[];
+      });
   }
 
   createTask(task: Task): Observable<Task> {
-    return this.http.post(this.url, task)
-    .map((res: Response) => {
-      return res.json() as Task;
-     });
+    return this.http.post(this.url, JSON.stringify(task))
+      .map((res: Response) => {
+        return res.json() as Task;
+      });
   }
 
 }

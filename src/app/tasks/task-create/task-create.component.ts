@@ -3,6 +3,7 @@ import { Task } from '../../models/task';
 import { TaskStatusEnum } from '../../enums/task-status.enum';
 import { TaskService } from '../../services/task.service';
 import { SelectItem } from 'primeng/components/common/selectitem';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-create',
@@ -19,12 +20,13 @@ export class TaskCreateComponent implements OnInit {
   list: SelectItem[];
 
   constructor(
-    private taskService: TaskService
+    private taskService: TaskService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.task = new Task();
-
+    this.selectedStatus = "";
     this.list = [
       {label: 'New', value: '1'},
       {label: 'Process', value: '2'},
@@ -38,7 +40,14 @@ export class TaskCreateComponent implements OnInit {
     this.taskService.createTask(this.task)
       .subscribe((res: Task) => {
         console.log(res);
+      },
+      error => {
+        console.log(error);
       });
+  }
+
+  onBack() {
+    this.router.navigate(['/tasks']);
   }
 
 }
