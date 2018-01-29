@@ -3,16 +3,51 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TaskListComponent } from './tasks/task-list/task-list.component';
+import { TaskCreateComponent } from './tasks/task-create/task-create.component';
+import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TaskService } from './services/task.service';
+import { FormsModule } from '@angular/forms';
+import { AccordionModule, BreadcrumbModule, AutoCompleteModule, ButtonModule, DataTableModule, CalendarModule, DropdownModule } from 'primeng/primeng';
+import { TasksComponent } from './tasks/tasks.component';
+import { HttpClientModule } from '@angular/common/http'; import { HttpModule } from '@angular/http';
+import { Http } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { RequestOptions } from '@angular/http/src/base_request_options';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig(), http, options);
+}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskListComponent,
+    TaskCreateComponent,
+    TaskDetailComponent,
+    TasksComponent
+    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,AppRoutingModule,
+    FormsModule,
+    HttpModule,
+    AccordionModule,
+    AutoCompleteModule,
+    CalendarModule,
+    HttpClientModule,
+    DropdownModule,
+    BreadcrumbModule,
+    ButtonModule,
+    DataTableModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    TaskService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

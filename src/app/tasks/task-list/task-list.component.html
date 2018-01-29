@@ -1,0 +1,18 @@
+<div class="ui-g ui-fluid">
+  <div class="card">
+    <p-dataTable emptyMessage="nuk_eshte_gjetur_asnje_rekord" [value]="taskList" [rows]="15" [lazy]="true"
+      [totalRecords]="20">
+      <p-column field="Id" header="ID"></p-column>
+      <p-column field="Title" header="Title"></p-column>
+      <p-column field="Description" header="Description"></p-column>
+      <p-column field="StartDate" header="StartDate"></p-column>
+      <p-column field="EndDate" header="EndDate"></p-column>
+      <p-column field="Status" header="Status"></p-column>
+
+    </p-dataTable>
+    <div class="ui-g-6">
+      <p-button (onClick)="onCreate()" label="Krijo task"></p-button>
+    </div>
+  </div>
+  
+</div>
