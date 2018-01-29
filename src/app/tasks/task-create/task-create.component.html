@@ -1,40 +1,34 @@
-<p>
-  task-create works!
-</p>
+<div class="ui-g ui-g-6">
+  <div class="card">
+    <div class="ui-md-6">
+      <label>Title </label>
+      <input pInputText type="text" [(ngModel)]="task.Title" name="Title">
+    </div>
 
-<div class="card">
-  <div class="ui-g-12 ui-md-6">
-    <label>Titulli </label>
-    <input pInputText type="text" [(ngModel)]="task.Title" name="Title">
+    <div class="ui-md-6">
+      <label>Description </label>
+      <input pInputText type="text" [(ngModel)]="task.Description" name="Description">
+    </div>
+
+    <div class="ui-md-6">
+      <label>Start Date </label>
+      <p-calendar dateFormat="dd/mm/yy" readonlyInput="true" [monthNavigator]="true" [yearNavigator]="true" [(ngModel)]="task.StartDate"
+        name="StartDate" [utc]="true" required></p-calendar>
+    </div>
+
+    <div class="ui-md-6">
+      <label>End Date </label>
+      <p-calendar dateFormat="dd/mm/yy" readonlyInput="true" [monthNavigator]="true" [yearNavigator]="true" [(ngModel)]="task.EndDate"
+        name="EndDate" [utc]="true" required></p-calendar>
+    </div>
+
+    <div class="ui-md-6">
+      <label>Status</label>
+      <p-dropdown [options]="list" name="Status" [(ngModel)]="selectedStatus" required></p-dropdown>
+      <!-- <p-dropdown [options]="changeList" name="changeOn" [style]="{'width':'100%'}" (onChange)="onChange($event)" [(ngModel)]="changeId" required></p-dropdown> -->
+    </div>
+    <div class="ui-g-6">
+      <p-button (onClick)="onCreate()" label="Save"></p-button>
+    </div>
   </div>
-  <div class="ui-g-12 ui-md-6">
-    <label>Pershkrimi </label>
-    <input pInputText type="text" [(ngModel)]="task.Description" name="Description">
-  </div>
-
-  <div class="ui-g-12 ui-md-6">
-    <label>Start Date </label>
-    <p-calendar dateFormat="dd/mm/yy" readonlyInput="true" [monthNavigator]="true" [yearNavigator]="true" [(ngModel)]="task.StartDate"
-      name="StartDate" [utc]="true" required></p-calendar>
-  </div>
-
-  <div class="ui-g-12 ui-md-6">
-    <label>End Date </label>
-    <p-calendar dateFormat="dd/mm/yy" readonlyInput="true" [monthNavigator]="true" [yearNavigator]="true" [(ngModel)]="task.EndDate"
-      name="EndDate" [utc]="true" required></p-calendar>
-  </div>
-
-  <div class="ui-g-12 ui-md-6">
-    <label>Statusi</label>
-    <p-dropdown [options]="list" name="Status" [style]="{'width':'100%'}" [(ngModel)]="selectedStatus" required></p-dropdown>
-    <!-- <p-dropdown [options]="changeList" name="changeOn" [style]="{'width':'100%'}" (onChange)="onChange($event)" [(ngModel)]="changeId" required></p-dropdown> -->
-
-  </div>
-  <div class="ui-g-6">
-    <p-button (onClick)="onCreate()" label="Ruaj"></p-button>
-  </div>
-
-
-
-
 </div>
