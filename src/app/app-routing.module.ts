@@ -8,7 +8,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskEditComponent } from './tasks/task-edit/task-edit.component';
 
 const appRoutes: Routes = [
-  { path: 'tasks', component: TasksComponent, children: [
+  { path: 'tasks', component: TasksComponent, children: []
       { path: '', component: TaskListComponent },
       { path: 'create', component: TaskCreateComponent},
       { path: 'detail/:id', component: TaskDetailComponent },
