@@ -1,5 +1,9 @@
 <div class="ui-g ui-g-6">
   <div class="card">
+    <div class="ui-g card-title">
+      <h2>Create Task</h2>
+    </div>
+
     <div class="ui-md-6">
       <label>Title </label>
       <input pInputText type="text" [(ngModel)]="task.title" name="Title">
@@ -12,19 +16,19 @@
 
     <div class="ui-md-6">
       <label>Start Date </label>
-      <p-calendar dateFormat="dd/mm/yy" readonlyInput="true" [monthNavigator]="true" [yearNavigator]="true" [(ngModel)]="task.startDate"
+      <p-calendar dateFormat="dd/mm/yy" placeholder="dd/mm/yy" readonlyInput="true" [monthNavigator]="true" [yearNavigator]="true" [(ngModel)]="task.startDate"
         name="StartDate" [utc]="true" required></p-calendar>
     </div>
 
     <div class="ui-md-6">
       <label>End Date </label>
-      <p-calendar dateFormat="dd/mm/yy" readonlyInput="true" [monthNavigator]="true" [yearNavigator]="true" [(ngModel)]="task.endDate"
+      <p-calendar dateFormat="dd/mm/yy" placeholder="dd/mm/yy" readonlyInput="true" [monthNavigator]="true" [yearNavigator]="true" [(ngModel)]="task.endDate"
         name="EndDate" [utc]="true" required></p-calendar>
     </div>
 
     <div class="ui-md-6">
       <label>Status</label>
-      <p-dropdown [options]="list" name="Status" [(ngModel)]="selectedStatus" required></p-dropdown>
+      <p-dropdown [options]="list" name="Status" [(ngModel)]="task.status" required></p-dropdown>
     </div>
     <div class="ui-g-6">
       <p-button (onClick)="onCreate()" label="Save"></p-button>

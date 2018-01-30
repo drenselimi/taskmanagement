@@ -36,7 +36,7 @@ export class TaskCreateComponent implements OnInit {
   }
 
   onCreate() {
-    this.task.status = this.selectedStatus;
+    // this.task.status = this.selectedStatus;
     this.taskService.createTask(this.task)
       .subscribe((res: Task) => {
         console.log(res);

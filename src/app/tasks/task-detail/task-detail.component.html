@@ -1,36 +1,92 @@
-<div class="ui-g ui-g-6">
-  <div class="card">
-    <div class="ui-g card-title"><strong>Task Info</strong></div>
+<div class="ui-g-12 ui-md-4">
 
-    <div class="ui-g-3">
-      <strong>Title</strong>
+  <div class="card" style="height: 100%">
+    <div class="ui-g card-title">
+      <h2>Task Details</h2>
     </div>
-    <div class="ui-g-3">{{task.title}}</div>
-
-    <div class="ui-g-3">
-      <strong>Content/Description</strong>
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-4">
+        <strong>Title</strong>
+      </div>
+      <div class="ui-g-12 ui-md-6">{{task.title}}</div>
     </div>
-    <div class="ui-g-3">{{task.content}} </div>
 
-    <div class="ui-g-3">
-      <strong>Start Date</strong>
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-4">
+        <strong>Content/Description</strong>
+      </div>
+      <div class="ui-g-12 ui-md-6">{{task.content}}</div>
     </div>
-    <div class="ui-g-3">{{task.startDate | date:'DD-MM-YYYY'}}</div>
 
-    <div class="ui-g-3">
-      <strong>End Date</strong>
+
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-4">
+        <strong>Start Date</strong>
+      </div>
+      <div class="ui-g-12 ui-md-6">{{task.startDate | date:'DD-MM-YYYY'}}</div>
     </div>
-    <div class="ui-g-3">{{task.endDate | date:'DD-MM-YYYY'}}</div>
 
-    <div class="ui-g-3">
-      <strong>Status</strong>
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-4">
+        <strong>End Date</strong>
+      </div>
+      <div class="ui-g-12 ui-md-6">{{task.endDate | date:'DD-MM-YYYY'}}</div>
     </div>
-    <div class="ui-g-3">{{task.status}}</div>
 
-    <div class="ui-g-6">
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-4">
+        <strong>Status</strong>
+      </div>
+      <div class="ui-g-12 ui-md-6">{{task.status | taskStatus}}</div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-6">
         <p-button (onClick)="onBack()" label="Back"></p-button>
+      </div>
     </div>
 
   </div>
-
 </div>
+
+<!-- <div class="ui-g ui-g-6">
+  <div class="card">
+    <div class="ui-g card-title">
+      <strong>Task Info</strong>
+    </div>
+
+    <div class="ui-md-3">
+      <strong>Title</strong>
+      <div class="ui-md-3">{{task.title}}</div>
+    </div>
+
+
+
+
+    <div class="ui-g-6 ui-md-3">
+      <strong>Content/Description</strong>
+    </div>
+    <div class="ui-g-6 ui-md-3">{{task.content}}</div>
+
+    <div class="ui-g-6 ui-md-3">
+      <strong>Start Date</strong>
+    </div>
+    <div class="ui-g-6 ui-md-3">{{task.startDate | date:'DD-MM-YYYY'}}</div>
+
+    <div class="ui-g-6 ui-md-3">
+      <strong>End Date</strong>
+    </div>
+    <div class="ui-g-6 ui-md-3">{{task.endDate | date:'DD-MM-YYYY'}}</div>
+
+    <div class="ui-g-6 ui-md-3">
+      <strong>Status</strong>
+    </div>
+    <div class="ui-g-6 ui-md-3">{{task.status}}</div>
+
+
+  </div>
+
+  <div class="ui-g-6 ui-md-3">
+    <p-button (onClick)="onBack()" label="Back"></p-button>
+  </div>
+</div> -->

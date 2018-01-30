@@ -3,7 +3,7 @@
 
     <div class="card">
       <div class="ui-g card-title">
-        <strong>Task List</strong>
+        <h2>Task List</h2>
       </div>
 
       <p-dataTable emptyMessage="No records found" [value]="taskList" [rows]="15" [lazy]="true" [totalRecords]="20">
@@ -24,14 +24,14 @@
         </p-column>
 
         <p-column field="status" header="Status">
-            <ng-template let-row="rowData" pTemplate="body">
-                {{row.status | taskStatus}}
-              </ng-template>
+          <ng-template let-row="rowData" pTemplate="body">
+            {{row.status | taskStatus}}
+          </ng-template>
         </p-column>
 
         <p-column styleClass="col-button" header="Details">
           <ng-template let-row="rowData" pTemplate="body">
-            <button type="button" pButton (click)="onDetail(row)" label="Detail" class="detail-btn"></button>
+            <button type="button" pButton (click)="onDetail(row)" label="Details" class="detail-btn"></button>
           </ng-template>
         </p-column>
 
@@ -48,9 +48,12 @@
         </p-column>
       </p-dataTable>
 
-      <div class="ui-g-6">
-        <p-button (onClick)="onCreate()" label="Create Task"></p-button>
-      </div>
+      <!-- <div class="ui-g"> -->
+        <div class="ui-g-12 ui-md-6">
+
+          <p-button (onClick)="onCreate()" label="Create Task"></p-button>
+        </div>
+      <!-- </div> -->
 
     </div>
   </div>
