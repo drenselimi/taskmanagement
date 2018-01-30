@@ -8,6 +8,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskEditComponent } from './tasks/task-edit/task-edit.component';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/tasks', pathMatch: 'full'},
   { path: 'tasks', component: TasksComponent, children: [
       { path: '', component: TaskListComponent },
       { path: 'create', component: TaskCreateComponent},
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes),
-    CommonModule],
+    CommonModule
+  ],
   exports: [RouterModule],
   declarations: []
 })
