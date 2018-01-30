@@ -4,22 +4,35 @@
     <div class="card">
 
       <p-dataTable emptyMessage="No records found" [value]="taskList" [rows]="15" [lazy]="true" [totalRecords]="20">
-        <p-column field="Id" header="ID"></p-column>
-        <p-column field="Title" header="Title"></p-column>
-        <p-column field="Description" header="Description"></p-column>
-        <p-column field="StartDate" header="StartDate"></p-column>
-        <p-column field="EndDate" header="EndDate"></p-column>
-        <p-column field="Status" header="Status"></p-column>
+        <!-- <p-column field="Id" header="ID"></p-column> -->
+        <p-column field="title" header="Title"></p-column>
+        <p-column field="content" header="Content"></p-column>
+        <p-column field="description" header="Description"></p-column>
+
+        <p-column field="startDate" header="StartDate">
+          <ng-template let-row="rowData" pTemplate="body">
+            {{startDate |date:'DD-MM-YYYY HH:mm'}}
+          </ng-template>
+        </p-column>
+
+        <p-column field="startDate" header="StartDate">
+          <ng-template let-row="rowData" pTemplate="body">
+            {{endDate |date:'DD-MM-YYYY HH:mm'}}
+          </ng-template>
+        </p-column>
+
+        <p-column field="status" header="Status"></p-column>
         <p-column styleClass="col-button" header="Details">
-          <!-- <template let-row="rowData" pTemplate="body"> -->
-            <button type="button"pButton (click)="onDetail()" class="detail-btn" icon="ui-icon-settings"></button>
-          <!-- </template> -->
+          <ng-template let-row="rowData" pTemplate="body">
+            <button type="button"pButton (click)="onDetail(row)" label="Detail" class="detail-btn"></button>
+          </ng-template>
         </p-column>
       </p-dataTable>
 
       <div class="ui-g-6">
         <p-button (onClick)="onCreate()" label="Create Task"></p-button>
       </div>
+      
 
     </div>
   </div>

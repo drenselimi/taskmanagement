@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-
+import { NgModule, Optional, Inject } from '@angular/core';
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './tasks/task-list/task-list.component';
 import { TaskCreateComponent } from './tasks/task-create/task-create.component';
@@ -11,15 +9,13 @@ import { TaskService } from './services/task.service';
 import { FormsModule } from '@angular/forms';
 import { AccordionModule, BreadcrumbModule, AutoCompleteModule, ButtonModule, DataTableModule, CalendarModule, DropdownModule } from 'primeng/primeng';
 import { TasksComponent } from './tasks/tasks.component';
-import { HttpClientModule } from '@angular/common/http'; import { HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { Http } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { RequestOptions } from '@angular/http/src/base_request_options';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatePipe } from './pipes/date.pipe';
 
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig(), http, options);
-}
 
 @NgModule({
   declarations: [
@@ -27,18 +23,18 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TaskListComponent,
     TaskCreateComponent,
     TaskDetailComponent,
-    TasksComponent
-    
+    TasksComponent,
+    DatePipe
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,AppRoutingModule,
+    AppRoutingModule, AppRoutingModule,
     FormsModule,
     HttpModule,
     AccordionModule,
     AutoCompleteModule,
     CalendarModule,
-    HttpClientModule,
     DropdownModule,
     BreadcrumbModule,
     ButtonModule,

@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-create',
-  templateUrl: './task-create.component.html',
-  styleUrls: ['./task-create.component.css']
+  templateUrl: './task-create.component.html'
 })
 export class TaskCreateComponent implements OnInit {
 
@@ -28,15 +27,18 @@ export class TaskCreateComponent implements OnInit {
     this.task = new Task();
     this.selectedStatus = "";
     this.list = [
-      {label: 'New', value: '1'},
-      {label: 'Process', value: '2'},
-      {label: 'Completed', value: '3'}
-  ];
+      { label: 'Select', value: '0' },      
+      { label: 'New', value: '1' },
+      { label: 'Process', value: '2' },
+      { label: 'Completed', value: '3' }
+    ];
 
   }
 
   onCreate() {
-    this.task.Status = this.selectedStatus;
+    // this.task.Id = Math.floor(Math.random() * 6) + 1;
+    this.task.status = this.selectedStatus;
+    // this.task.candidateId = 'ae355c5624ec';
     this.taskService.createTask(this.task)
       .subscribe((res: Task) => {
         console.log(res);

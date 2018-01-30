@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-list',
-  templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  templateUrl: './task-list.component.html'
 })
 export class TaskListComponent implements OnInit {
 
@@ -25,22 +24,18 @@ export class TaskListComponent implements OnInit {
   }
 
   getAllTasks() {
-    // let tempTask = new Task();
-    // tempTask.Title = "test";
-    // tempTask.Description = "test";
-    // tempTask.EndDate = new Date('December 17, 1995 03:24:00');
-    // tempTask.StartDate = new Date('December 17, 1995 03:24:00');
-    // tempTask.Status = "New";
-    // this.taskList.push(tempTask);
     this.taskService.getAll()
     .subscribe((res: Task[]) => {
       this.taskList = res;
-      // this.loadingService.stop();
     });
   }
 
   onCreate() {
     this.router.navigate(['/tasks/create']);
+  }
+
+  onDetail(event) {
+    this.router.navigate(['/tasks/detail/' + event._id]);
   }
 
 }

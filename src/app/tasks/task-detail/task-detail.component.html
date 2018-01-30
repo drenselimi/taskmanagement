@@ -1,3 +1,41 @@
-<p>
-  task-detail works!
-</p>
+<div class="ui-g ui-g-6">
+  <div class="card">
+    <div class="ui-g card-title"><strong>Task Info</strong></div>
+
+    <div class="ui-g-3">
+      <strong>Title</strong>
+    </div>
+    <div class="ui-g-3">{{task.title}}</div>
+
+    <div class="ui-g-3">
+      <strong>Content</strong>
+    </div>
+    <div class="ui-g-3">{{task.content}} </div>
+
+    <div class="ui-g-3">
+        <strong>Description</strong>
+      </div>
+      <div class="ui-g-3">{{task.description}} </div>
+
+    <div class="ui-g-3">
+      <strong>Start Date</strong>
+    </div>
+    <div class="ui-g-3">{{task.startDate | date:'DD-MM-YYYY'}}</div>
+
+    <div class="ui-g-3">
+      <strong>End Date</strong>
+    </div>
+    <div class="ui-g-3">{{task.endDate | date:'DD-MM-YYYY'}}</div>
+
+    <div class="ui-g-3">
+      <strong>Status</strong>
+    </div>
+    <div class="ui-g-3">{{task.status}}</div>
+
+    <div class="ui-g-6">
+        <p-button (onClick)="onBack()" label="Back"></p-button>
+    </div>
+
+  </div>
+
+</div>

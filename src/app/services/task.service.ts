@@ -21,8 +21,15 @@ export class TaskService {
       });
   }
 
+  getById(id: string): Observable<Task> {
+    return this.http.get(this.url + '/' + id)
+      .map((res: Response) => {
+        return res.json() as Task;
+      });
+  }
+
   createTask(task: Task): Observable<Task> {
-    return this.http.post(this.url, JSON.stringify(task))
+    return this.http.post(this.url, task)
       .map((res: Response) => {
         return res.json() as Task;
       });
