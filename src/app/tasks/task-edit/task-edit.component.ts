@@ -26,8 +26,7 @@ export class TaskEditComponent implements OnInit {
     this.task = new Task();
 
     this.selectedStatus = "";
-    this.list = [
-      { label: 'Select', value: '0' },      
+    this.list = [   
       { label: 'New', value: '1' },
       { label: 'Process', value: '2' },
       { label: 'Completed', value: '3' }
