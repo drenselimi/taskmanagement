@@ -24,7 +24,14 @@ export class TaskService {
   getById(id: string): Observable<Task> {
     return this.http.get(this.url + '/' + id)
       .map((res: Response) => {
-        return res.json() as Task;
+        let result = res.json() as Task;
+        if (result.startDate) {
+          result.startDate = new Date(result.startDate);
+        }
+        if (result.endDate) {
+          result.endDate = new Date(result.endDate);
+        }
+        return result;
       });
   }
 
@@ -33,6 +40,20 @@ export class TaskService {
       .map((res: Response) => {
         return res.json() as Task;
       });
+  }
+
+  updateTask(task: Task): Observable<Task> {
+    return this.http.put(this.url+ '/' + task._id, task)
+      .map((res: Response) => {
+        return res.json() as Task;
+      });
+  }
+
+  deleteTask(id: string): Observable<void> {
+    return this.http.delete(this.url + '/' + id)
+      .map((res: Response) => {
+        return;
+      }); 
   }
 
 }

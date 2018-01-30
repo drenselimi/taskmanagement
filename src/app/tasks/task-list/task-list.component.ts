@@ -26,6 +26,7 @@ export class TaskListComponent implements OnInit {
   getAllTasks() {
     this.taskService.getAll()
     .subscribe((res: Task[]) => {
+      console.log(res);
       this.taskList = res;
     });
   }
@@ -36,6 +37,17 @@ export class TaskListComponent implements OnInit {
 
   onDetail(event) {
     this.router.navigate(['/tasks/detail/' + event._id]);
+  }
+
+  onEdit(event) {
+    this.router.navigate(['/tasks/edit/' + event._id]);
+  }
+
+  onDelete(event) {
+    this.taskService.deleteTask(event._id)
+      .subscribe(() => {
+        this.getAllTasks();
+      });
   }
 
 }

@@ -1,30 +1,49 @@
 <div class="ui-g ui-fluid">
-  <div class="ui-g ui-g-6">
+  <div class="ui-g ui-g-8">
 
     <div class="card">
+      <div class="ui-g card-title">
+        <strong>Task List</strong>
+      </div>
 
       <p-dataTable emptyMessage="No records found" [value]="taskList" [rows]="15" [lazy]="true" [totalRecords]="20">
-        <!-- <p-column field="Id" header="ID"></p-column> -->
         <p-column field="title" header="Title"></p-column>
-        <p-column field="content" header="Content"></p-column>
-        <p-column field="description" header="Description"></p-column>
+        <p-column field="content" header="Content/Description"></p-column>
+        <!-- <p-column field="description" header="Description"></p-column> -->
 
-        <p-column field="startDate" header="StartDate">
+        <p-column field="startDate" header="Start Date">
           <ng-template let-row="rowData" pTemplate="body">
-            {{startDate |date:'DD-MM-YYYY HH:mm'}}
+            {{row.startDate | date:'DD-MM-YYYY'}}
           </ng-template>
         </p-column>
 
-        <p-column field="startDate" header="StartDate">
+        <p-column field="endDate" header="End Date">
           <ng-template let-row="rowData" pTemplate="body">
-            {{endDate |date:'DD-MM-YYYY HH:mm'}}
+            {{row.endDate | date:'DD-MM-YYYY'}}
           </ng-template>
         </p-column>
 
-        <p-column field="status" header="Status"></p-column>
+        <p-column field="status" header="Status">
+            <ng-template let-row="rowData" pTemplate="body">
+                {{row.status | taskStatus}}
+              </ng-template>
+        </p-column>
+
         <p-column styleClass="col-button" header="Details">
           <ng-template let-row="rowData" pTemplate="body">
-            <button type="button"pButton (click)="onDetail(row)" label="Detail" class="detail-btn"></button>
+            <button type="button" pButton (click)="onDetail(row)" label="Detail" class="detail-btn"></button>
+          </ng-template>
+        </p-column>
+
+        <p-column styleClass="col-button" header="Details">
+          <ng-template let-row="rowData" pTemplate="body">
+            <button type="button" pButton (click)="onEdit(row)" label="Edit" class="detail-btn"></button>
+          </ng-template>
+        </p-column>
+
+        <p-column styleClass="col-button" header="Details">
+          <ng-template let-row="rowData" pTemplate="body">
+            <button type="button" pButton (click)="onDelete(row)" label="Delete" class="detail-btn"></button>
           </ng-template>
         </p-column>
       </p-dataTable>
@@ -32,7 +51,6 @@
       <div class="ui-g-6">
         <p-button (onClick)="onCreate()" label="Create Task"></p-button>
       </div>
-      
 
     </div>
   </div>

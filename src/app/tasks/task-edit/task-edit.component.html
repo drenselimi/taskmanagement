@@ -1,5 +1,8 @@
 <div class="ui-g ui-g-6">
   <div class="card">
+    <div class="ui-g card-title">
+      <strong>Task Edit</strong>
+    </div>
     <div class="ui-md-6">
       <label>Title </label>
       <input pInputText type="text" [(ngModel)]="task.title" name="Title">
@@ -7,8 +10,13 @@
 
     <div class="ui-md-6">
       <label>Content/Description</label>
-      <textarea pInputTextarea [(ngModel)]="task.content" name="Content" #Content="ngModel"></textarea>
+      <input pInputText type="text" [(ngModel)]="task.content" name="Content">
     </div>
+
+    <!-- <div class="ui-md-6">
+      <label>Description </label>
+      <input pInputText type="text" [(ngModel)]="task.description" name="Content">
+    </div> -->
 
     <div class="ui-md-6">
       <label>Start Date </label>
@@ -27,7 +35,7 @@
       <p-dropdown [options]="list" name="Status" [(ngModel)]="selectedStatus" required></p-dropdown>
     </div>
     <div class="ui-g-6">
-      <p-button (onClick)="onCreate()" label="Save"></p-button>
+      <p-button (onClick)="onSave()" label="Save"></p-button>
     </div>
     <div class="ui-g-6">
       <p-button (onClick)="onBack()" label="Back"></p-button>

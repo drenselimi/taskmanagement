@@ -15,6 +15,8 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { RequestOptions } from '@angular/http/src/base_request_options';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from './pipes/date.pipe';
+import { TaskEditComponent } from './tasks/task-edit/task-edit.component';
+import { StatusPipe } from './pipes/status.pipe';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { DatePipe } from './pipes/date.pipe';
     TaskCreateComponent,
     TaskDetailComponent,
     TasksComponent,
-    DatePipe
+    DatePipe,
+    TaskEditComponent,
+    StatusPipe
 
   ],
   imports: [

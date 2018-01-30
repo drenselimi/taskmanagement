@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../models/task';
-import { TaskStatusEnum } from '../../enums/task-status.enum';
 import { TaskService } from '../../services/task.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SelectItem } from 'primeng/components/common/selectitem';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-task-create',
-  templateUrl: './task-create.component.html'
+  selector: 'app-task-edit',
+  templateUrl: './task-edit.component.html'
 })
-export class TaskCreateComponent implements OnInit {
-
-  statusList: TaskStatusEnum[];
-  selectedStatus: string;
+export class TaskEditComponent implements OnInit {
 
   task: Task;
 
   list: SelectItem[];
 
+  selectedStatus: string
+
   constructor(
-    private taskService: TaskService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private taskService: TaskService
   ) { }
 
   ngOnInit() {
     this.task = new Task();
+
     this.selectedStatus = "";
     this.list = [
       { label: 'Select', value: '0' },      
@@ -33,17 +33,20 @@ export class TaskCreateComponent implements OnInit {
       { label: 'Completed', value: '3' }
     ];
 
+    let taskId = this.route.snapshot.params['id'];
+
+    this.taskService.getById(taskId)
+      .subscribe((res: Task) => {
+        this.selectedStatus = res.status;
+        this.task = res;
+      });
+
   }
 
-  onCreate() {
-    this.task.status = this.selectedStatus;
-    this.taskService.createTask(this.task)
+  onSave() {
+    this.taskService.updateTask(this.task)
       .subscribe((res: Task) => {
-        console.log(res);
         this.router.navigate(['/tasks']);
-      },
-      error => {
-        console.log(error);
       });
   }
 

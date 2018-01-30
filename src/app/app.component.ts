@@ -9,21 +9,9 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class AppComponent implements OnInit {
 
-
-  items: MenuItem[];
-  activeItem: MenuItem;
+  title = "App";
 
   ngOnInit() {
-    // firebase.initializeApp({
-    //   apiKey: 'AIzaSyBJ6xXVRFH1y4_nH1RV_yVyKoVkthY1WYI',
-    //   authDomain: 'dentapp-930c3.firebaseapp.com'
-    // });
-
-    this.items = [
-            {label: 'Tasks', icon: 'fa-bar-chart', url: 'tasklist' }
-        ];
-    // this.activeItem = this.items[0];
-
   }
 
 }
